@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "" please add my name"
+echo " please add my name"
