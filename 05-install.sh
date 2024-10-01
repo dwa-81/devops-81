@@ -28,4 +28,5 @@ else
     echo "mysql is not installed, going to installed it.."
     dnf install mysql -y
 else
-   echo "mysql is already installed, nothing to do it.."    
+   echo "mysql is already installed, nothing to do it.."  
+fi     
