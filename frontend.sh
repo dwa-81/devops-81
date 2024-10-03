@@ -53,7 +53,7 @@ curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expe
 VALIDATE $? "DOWNLOADING THE FRONTEND APPLICATION"
 
 
-cd /usr/share/nginx/html &??$LOGS_FILE
+cd /usr/share/nginx/html 
 
 unzip /tmp/frontend.zip &??$LOGS_FILE
 VALIDATE $? "EXTRACT FRONTEND CODE"
