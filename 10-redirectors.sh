@@ -15,7 +15,7 @@ N="\e[0m"
 CHECK_ROOT(){
 if [ $USERID -ne 0 ]
 then
-    echo -e " $R please run the script with root preveleges"
+    echo -e " $R please run the script with root preveleges $N " | tee -a $LOGS_FILE
     exit 1
 fi    
 }
@@ -23,11 +23,13 @@ fi
 VALIDATE(){
 if [ $1 -ne 0 ]
 then
-    echo -e " $R $2 is ... failure $N "
+    echo -e " $R $2 is ... failure $N " | tee -a $LOGS_FILE
 else
-   echo -e " $G $2 is... success $N "
+   echo -e " $G $2 is... success $N " | tee -a $LOGS_FILE
 fi   
 }
+
+echo "script started executing at: $(date)" | tee -a $LOGS_FILE
 
 CHECK_ROOT
 
