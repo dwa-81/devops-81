@@ -30,19 +30,19 @@ else
 fi
 }
 
-echo "script started executed at: $(date)" 
+echo "script started executed at: $(date)" | tee -a $LOGS_FILE
 
 CHECK_ROOT
 
-dnf install mysql-server -y 
+dnf install mysql-server -y | tee -a $LOGS_FILE
 VALIDATE $? "installing mysql sever"
 
-systemctl enable mysqld 
+systemctl enable mysqld | tee -a $LOGS_FILE
 VALIDATE $? "enabled mysql sever"
 
-systemctl start mysqld 
+systemctl start mysqld | tee -a $LOGS_FILE
 VALIDATE $? "start mysql server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 
+mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a $LOGS_FILE
 VALIDATE $? "setup root password"
 
