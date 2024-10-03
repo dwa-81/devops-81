@@ -13,6 +13,7 @@ if [ $USERID -ne 0 ]
 then
     echo -e " $R please run the script with root preveleges"
     exit 1
+fi    
 }
 
 VALIDATE(){
