@@ -7,7 +7,7 @@ TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDE
 
-USERID=$(ID -U)
+USERID=$(id -U)
 
 R="\e[31m"
 G="\e[32m"
