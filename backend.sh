@@ -73,7 +73,7 @@ cp /home/ec2-user/devops-81/backend.services /etc/systemd/system/backend.service
 dnf install mysql -y &>>$LOGS_FILE
 
 
-mysql -h backend.daw81.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGS_FILE
+mysql -h mysql.daw81.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGS_FILE
 
 systemctl daemon-reload &>>$LOGS_FILE
 
