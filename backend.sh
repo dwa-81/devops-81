@@ -55,8 +55,8 @@ else
    echo "expense user is already create, nothing to do "  
 fi  
 
-mkdir -P /app
-VALIDATE $? "create folder"
+mkdir -p /app
+VALIDATE $? "creating /app folder"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 VALIDATE $? "downloading backend application"
