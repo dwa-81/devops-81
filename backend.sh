@@ -45,5 +45,13 @@ dnf install nodejs -y &>>$LOGS_FILE
 VALIDATE $? "installing nodejs"
 
 useradd expense
-VALLIDATE $? "create user"
+VALIDATE $? "create user"
 
+if [ $? -ne 0 ]
+then
+   echo "expense user is not create, create it now"
+   useradd expense
+   VALIDATE $? "create expense user"
+else
+   echo "expense user is already create, nothing to do "  
+fi  
