@@ -66,4 +66,17 @@ rm -rf /app/*
 unzip /tmp/backend.zip
 VALIDATE $? "extracting backend application"
 
+npm install
 
+cp /home/ec2-user/devops-81/backend.services /etc/systemd/system/backend.service
+
+dnf install mysql -y
+
+
+mysql -h backend.daw81.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+systemctl daemon-reload
+
+systemctl enable backend
+
+systemctl restart backend
