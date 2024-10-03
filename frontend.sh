@@ -5,7 +5,7 @@ LOGS_FOLDER="/var/log/expense"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
-mkdir -p $LOGS_FOLDE
+mkdir -p $LOGS_FOLDER
 
 USERID=$(id -u)
 
@@ -61,5 +61,6 @@ cp /home/ec2-user/devops-81/expense.conf /etc/nginx/default.d/expense.conf
 VALIDATE $? "copied expense conf"
 systemctl restart nginx 
 VALIDATE $? "RESTART NGINX"
+
 
 
