@@ -36,7 +36,7 @@ echo -e " $Y script started executed at: $(date) $N " | tee -a $LOGS_FILE
 CHECK_ROOT
 
 dnf module disable nodejs -y &>>$LOGS_FILE
-VALIDATE $? "module disable"
+VALIDATE $? "disable default nodejs"
 
 dnf module enable nodejs:20 -y &>>$LOGS_FILE
 VALIDATE $? "module enable"
@@ -44,14 +44,25 @@ VALIDATE $? "module enable"
 dnf install nodejs -y &>>$LOGS_FILE
 VALIDATE $? "installing nodejs"
 
-useradd expense
-VALIDATE $? "create user"
+id expense &>>$LOGS_FILE
 
 if [ $? -ne 0 ]
 then
    echo "expense user is not create, create it now"
-   useradd expense
+   useradd expense &>>$LOGS_FILE
    VALIDATE $? "create expense user"
 else
    echo "expense user is already create, nothing to do "  
 fi  
+
+mkdir -P /app
+VALIDATE $? "create folder"
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+VALIDATE $? "downloading backend application"
+
+cd /app
+unzip /tmp/backend.zip
+VALIDATE $? "extracting backend application"
+
+
