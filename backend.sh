@@ -68,7 +68,7 @@ VALIDATE $? "extracting backend application"
 
 npm install &>>$LOGS_FILE
 
-cp /home/ec2-user/devops-81/backend.services 
+cp /home/ec2-user/devops-81/backend.services /etc/systemd/system/backend.service
 
 dnf install mysql -y &>>$LOGS_FILE
 
