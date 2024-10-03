@@ -2,7 +2,7 @@
 
 LOGS_FOLDER="/var/log/shell)"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-TIMESTAMP=$(date +&y-%m-%d-%H-%M-%S)
+TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
@@ -16,7 +16,7 @@ N="\e[0m"
 CHECK_ROOT(){
 if [ $USERID -ne 0 ]    
 then
-   echo "please run the script with root prevelges" | tee -a $LOGS_FILE
+   echo -e " $R please run the script with root prevelges $N " | tee -a $LOGS_FILE
    exit 1
 fi
 }
@@ -24,25 +24,25 @@ fi
 VALIDATE(){
 if [ $1 -ne 0 ]
 then
-   echo "$2 is ...failure" | tee -a $LOGS_FILE
+   echo -e " $R $2 is ...failure $N " | tee -a $LOGS_FILE
 else       
-   echo "$2 is ...success" | tee -a $LOGS_FILE
+   echo -e " $G $2 is ...success $N " | tee -a $LOGS_FILE
 fi
 }
 
-echo "script started executed at: $(date)" | tee -a $LOGS_FILE
+echo -e " $Y script started executed at: $(date) $N " | tee -a $LOGS_FILE
 
 CHECK_ROOT
 
 dnf install mysql-server -y | tee -a $LOGS_FILE
-VALIDATE $? "installing mysql sever"
+VALIDATE $? -e " $G installing mysql sever $N "
 
 systemctl enable mysqld | tee -a $LOGS_FILE
-VALIDATE $? "enabled mysql sever"
+VALIDATE $? -e " $G enabled mysql sever $N "
 
 systemctl start mysqld | tee -a $LOGS_FILE
-VALIDATE $? "start mysql server"
+VALIDATE $? -e " $G start mysql server $N "
 
 mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a $LOGS_FILE
-VALIDATE $? "setup root password"
+VALIDATE $? -e " $G setup root password $N "
 
