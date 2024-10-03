@@ -58,5 +58,5 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip 
 VALIDATE $? "EXTRACT FRONTEND CODE"
 cp /home/ec2-user/devops-81/expense.conf /etc/nginx/default.d/expense.conf
-
+VALIDATE $? "copied expense conf"
 systemctl restart nginx
