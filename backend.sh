@@ -63,20 +63,20 @@ VALIDATE $? "downloading backend application"
 
 cd /app
 rm -rf /app/*
-unzip /tmp/backend.zip
+unzip /tmp/backend.zip &>>$LOGS_FILE
 VALIDATE $? "extracting backend application"
 
-npm install
+npm install &>>$LOGS_FILE
 
-cp /home/ec2-user/devops-81/backend.services /etc/systemd/system/backend.service
+cp /home/ec2-user/devops-81/backend.services 
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOGS_FILE
 
 
-mysql -h backend.daw81.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h backend.daw81.online -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGS_FILE
 
-systemctl daemon-reload
+systemctl daemon-reload &>>$LOGS_FILE
 
-systemctl enable backend
+systemctl enable backend &>>$LOGS_FILE
 
-systemctl restart backend
+systemctl restart backend &>>$LOGS_FILE
