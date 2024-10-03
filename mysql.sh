@@ -34,15 +34,15 @@ echo -e " $Y script started executed at: $(date) $N " | tee -a $LOGS_FILE
 
 CHECK_ROOT
 
-dnf install mysql-server -y | tee -a $LOGS_FILE
+dnf install mysql-server -y &>>$LOGS_FILE
 VALIDATE $? -e " $G installing mysql sever $N "
 
-systemctl enable mysqld | tee -a $LOGS_FILE
+systemctl enable mysqld &>>$LOGS_FILE
 VALIDATE $? -e " $G enabled mysql sever $N "
 
-systemctl start mysqld | tee -a $LOGS_FILE
+systemctl start mysqld &>>$LOGS_FILE
 VALIDATE $? -e " $G start mysql server $N "
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a $LOGS_FILE
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGS_FILE
 VALIDATE $? -e " $G setup root password $N "
 
