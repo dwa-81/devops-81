@@ -35,12 +35,12 @@ echo -e " $Y script started executed at: $(date) $N " | tee -a $LOGS_FILE
 
 CHECK_ROOT
 
-dnf module disable nodejs -y &>>$LOGS_FILE
+dnf module disable nodejs -y 
 VALIDATE $? "module disable"
 
-dnf module enable nodejs:20 -y &>>$LOGS_FILE
+dnf module enable nodejs:20 -y 
 VALIDATE $? "module enable"
 
-dnf install nodejs -y &>>$LOGS_FILE
+dnf install nodejs -y 
 VALIDATE $? "installing nodejs"
 
