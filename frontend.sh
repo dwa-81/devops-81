@@ -60,9 +60,9 @@ VALIDATE $? "EXTRACT FRONTEND CODE"
 
 cp /home/ec2-user/devops-81/frontend.services /etc/nginx/default.d/expense.conf &>>$LOGS_FILE
 
-VALIDATE $? "copied expense conf" &>>$LOGS_FILE
-systemctl restart nginx 
-VALIDATE $? "RESTART NGINX" &>>$LOGS_FILE
+VALIDATE $? "copied expense conf" 
+systemctl restart nginx &>>$LOGS_FILE
+VALIDATE $? "RESTART NGINX" 
 
 
 
