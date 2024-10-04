@@ -16,12 +16,9 @@ then
 fi    
 
 
-if [ -d $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR exists"
-else
-    echo "$SOURCE_DIR does not exists"
-    exit 1
+    echo "$SOURCE_DIR does not exists ... please"
 fi
 
 if [ ! -d $DEST_DIR ]
