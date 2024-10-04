@@ -21,5 +21,5 @@ while IFS= read -r file
 do
   echo "deleting file: $file"
   rm -rf $file
-done <<< $FILES   #for delete command is     in   /var/log   ( sudo tail -f cron )
+done <<< $FILES 
 
