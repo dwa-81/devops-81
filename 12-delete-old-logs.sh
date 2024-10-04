@@ -25,3 +25,4 @@ do
   echo "deleting files: $FILES"
   rm -rf $file
 done <<< $FILES
+
