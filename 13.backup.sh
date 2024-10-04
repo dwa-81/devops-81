@@ -8,7 +8,7 @@ USAGE(){
     echo "USAGE :: sh 13.backup.sh <source> <destination> <days(optional)>"
 }
 
-# check the source and destination dir provided
+
 
 if [ $# -lt 2 ]
 then
