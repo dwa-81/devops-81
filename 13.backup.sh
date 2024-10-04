@@ -15,12 +15,16 @@ then
     USAGE
 fi    
 
+
 if [ -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR  does not exist ... please check"
-fi 
+    echo "$SOURCE_DIR exists"
+else
+    echo "$SOURCE_DIR does not exists"
+    exit 1
+fi
 
-if [ -d $DEST_DIR ]
+if [ ! -d $DEST_DIR ]
 then
     echo "$DEST_DIR  does not exist ... please check"
 fi 
