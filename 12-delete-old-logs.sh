@@ -9,12 +9,12 @@ N="\e[0m"
 
 if [ -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR is exists"
+    echo "$SOURCE_DIR exists"
 else
-    echo "$SOURCE_DIR is does not exists"
+    echo "$SOURCE_DIR does not exists"
     exit 1
 fi
 
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
-echo "files:$FILES"
+echo "files: $FILES"
