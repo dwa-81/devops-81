@@ -16,5 +16,12 @@ else
 fi
 
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 echo "files: $FILES"
+
+
+while IFS= read -r file
+do
+  echo "deleting files: $FILES"
+  rm -rf $file
+done <<< $FILES  
