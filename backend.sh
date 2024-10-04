@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-LOGS_FOLDER="(/var/log/expense)"
+LOGS_FOLDER="/var/log/expense"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
@@ -81,3 +81,4 @@ systemctl enable backend &>>$LOGS_FILE
 VALIDATE $? "enable backend"
 systemctl restart backend &>>$LOGS_FILE
 VALIDATE $? "restart backend"
+
