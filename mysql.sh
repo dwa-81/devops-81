@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOGS_FOLDER="(/var/log/expense)"
+LOGS_FOLDER="/var/log/expense"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
@@ -51,7 +51,7 @@ then
    VALIDATE $? "setting up root password"
 else
    echo "mysql password is already setup, nothing to do it" | tee -a $LOGS_FILE
-fi 
+fi
 
    
 
