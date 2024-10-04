@@ -29,7 +29,7 @@ FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS)
 echo "files: $FILES"
 
 
-if [ -n $FILES ]
+if [ ! -z $FILES ]
 then
     echo "FILES are found"
 else
