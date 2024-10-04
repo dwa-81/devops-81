@@ -5,7 +5,7 @@ DEST_DIR=$2
 DAYS=${3:-14}  # if 3 is empty, default is 14 days
 
 USAGE(){
-    echo "USAGE :: sh 13.backup.sh <source> <destination> <days(optional)>"
+     echo "USAGE :: sh 13.backup.sh <source> <destination> <days(optional)>"
 }
 
 
@@ -15,12 +15,12 @@ then
     USAGE
 fi    
 
-if [ ! -d $SOURCE_DIR ]
+if [ -d $SOURCE_DIR ]
 then
     echo "$SOURCE_DIR  does not exist ... please check"
 fi 
 
-if [ ! -d $DEST_DIR ]
+if [ -d $DEST_DIR ]
 then
     echo "$DEST_DIR  does not exist ... please check"
 fi 
